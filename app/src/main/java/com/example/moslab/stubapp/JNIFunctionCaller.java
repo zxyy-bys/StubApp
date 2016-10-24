@@ -16,9 +16,13 @@ public class JNIFunctionCaller {
     public void callfork(){
         myfork();
     }
+    public void callSleppAndExit(){
+        mysleepandexit();
+    }
 
     public native void myprctl(String s);
     public native void myfork();
+    public native void mysleepandexit();
 
     static {
         System.loadLibrary("systemcallJNI");

@@ -44,6 +44,12 @@ void Java_com_example_moslab_stubapp_JNIFunctionCaller_myprctl(
         }
 
 }
+extern "C"
+void Java_com_example_moslab_stubapp_JNIFunctionCaller_mysleepandexit(JNIEnv* env,
+                                                              jobject /*this*/){
+    sleep(5);
+    exit(1);
+}
 
 const char *syscall_name(int scn) {
     struct syscall_entry *ent;

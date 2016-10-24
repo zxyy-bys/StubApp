@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
             new JNIFunctionCaller().callprctl("hello");
             new JNIFunctionCaller().myfork();
             System.out.println("Parent process asfadsf");
+
+            new JNIFunctionCaller().callSleppAndExit();
         }catch(Exception e){
             e.printStackTrace();
         }
