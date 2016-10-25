@@ -16,6 +16,7 @@
 #include "../../../../../../Android/Sdk/ndk-bundle/platforms/android-19/arch-arm/usr/include/sys/user.h"
 #include "../../../../../../Android/Sdk/ndk-bundle/platforms/android-19/arch-x86/usr/include/asm/ptrace-abi.h"
 
+#include <sys/syscall.h>
 #ifdef __amd64__
 #define eax rax
 #define orig_eax orig_rax
@@ -88,11 +89,13 @@ void Java_com_example_moslab_stubapp_JNIFunctionCaller_myfork(
                 break;
             }
 
+
 #ifdef __arm__
             long val = ptrace(PTRACE_PEEKUSER, traced_process, sizeof(long)*r7);
              __android_log_print(ANDROID_LOG_DEBUG,"CHILD", "defined ARM7: %lu ==> %s\n",val,syscall_name(val));
-
-
+             if(val == SYS_ioctl){
+             
+             }
 
             //fprintf(fp,"defined ARM: %lu ==> %s\n",val,syscall_name(val));
 #else

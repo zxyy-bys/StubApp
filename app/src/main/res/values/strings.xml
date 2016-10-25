@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">StubApp</string>
+    <string name="title_activity_my_dummy">MyDummyActivity</string>
 </resources>
